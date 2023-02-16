@@ -4,13 +4,32 @@ const inquirer = require("inquirer");
 const jest = require("jest");
 
 // An array of questions for user input
-const questions = [];
+const questions = [
+  {
+    type: "input",
+    message: "What is your name?",
+    name: "employeeName",
+  },
+  {
+    type: "input",
+    message: "What is your email?",
+    name: "email",
+  },
+  {
+    type: "input",
+    message: "What is your employee ID?",
+    name: "eeId",
+  },
+  {
+    type: "input",
+    message: "What is your office number?",
+    name: "officenumber",
+  },
+];
 
 // A function to write HTML file
-function writeToFile(fileName, data) {}
-
-// TODO: Create a function to initialize app
-function init() {}
-
-// Function call to initialize app
-init();
+inquirer.prompt(questions).then((data) => {
+  fs.writeFile("./dist/index.html", JSON.stringify(data, null, "\n"), (err) =>
+    err ? console.log(err) : console.log("Success!")
+  );
+});
