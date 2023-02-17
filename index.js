@@ -8,7 +8,7 @@ const questions = [
   {
     type: "input",
     message: "What is your name?",
-    name: "employeeName",
+    name: "name",
   },
   {
     type: "input",
@@ -18,7 +18,7 @@ const questions = [
   {
     type: "input",
     message: "What is your employee ID?",
-    name: "eeId",
+    name: "id",
   },
   {
     type: "input",
