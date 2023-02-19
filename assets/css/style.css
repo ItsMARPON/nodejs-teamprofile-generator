@@ -10,3 +10,7 @@
 .selector-for-some-widget {
   box-sizing: content-box;
 }
+
+.card {
+  background-color: var(--bs-primary-bg-subtle);
+}
