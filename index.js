@@ -63,7 +63,7 @@ inquirer.prompt(questions).then((data) => {
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Emp ID:${data.id}</li>
             <li a href="#" class="list-group-item">Email:${data.email}</a></li>
-            <li class="list-group-item"></li>
+            <li class="list-group-item">Role:${data.role}</li>
           </ul>
         </div>
       </main>
