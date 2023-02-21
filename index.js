@@ -125,7 +125,12 @@ const addEngineer = () => {
     .then((data) => {
       console.log(data);
       console.log("-------------------------ENGINEER-------------------------");
-      const engineer = new Engineer(data.name,data.id,data.email,data.github);
+      const engineer = new Engineer(
+        data.name,
+        data.id,
+        data.email,
+        data.github
+      );
       employeeData.push(engineer);
       menu();
     });
@@ -164,8 +169,7 @@ const addIntern = () => {
 };
 // // A function to write HTML file
 
-
-function = (employeeData) => {
+inquirer.prompt().then((data) => {
   fs.writeFile(
     "./dist/index.html",
     `<!DOCTYPE html>
