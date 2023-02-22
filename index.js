@@ -169,7 +169,7 @@ const addIntern = () => {
 };
 // // A function to write HTML file
 
-inquirer.prompt().then((data) => {
+employeeData.forEach((data) => {
   fs.writeFile(
     "./dist/index.html",
     `<!DOCTYPE html>
