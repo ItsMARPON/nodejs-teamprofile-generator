@@ -1,47 +1,36 @@
-const Employee = require("../lib/employee");
 const Intern = require("../lib/intern");
 const fs = require("fs");
 
 jest.mock("fs");
 
-
-describe("Employee", () => {
+describe("Intern", () => {
   describe("Initialization", () => {
-    // positive test
-    it("should call fs.readFileSync with the passed in 'file' argument", () => {
-      const fileIO = new FileIO();
-      const file = "message.txt";
-      let data;
+    test("should obtain intern Id", () => {
+      const employee = new Employee("Mary", 1234, "mary@gmail.com");
 
-      fs.readFileSync.mockReturnValue("Hello World!");
-      data = fileIO.read(file);
-
-      expect(data).toEqual("Hello World!");
-      expect(fs.readFileSync).lastCalledWith(file, "utf8");
+      expect(employee.getId()).toEqual(expect.any(Number));
     });
   });
+});
 
-  describe("write", () => {
-    it("should call fs.writeFileSync with the passed in 'path' and 'data' arguments", () => {
-      const fileIO = new FileIO();
-      const path = "message.txt";
-      const data = "Hello World!";
+// gets email from getEmail()
+test("should obtain intern email", () => {
+  const employee = new Employee("Mary", 1234, "mary@gmail.com");
 
-      fileIO.write(path, data);
+  expect(employee.getEmail()).toEqual(
+    expect.stringContaining(employee.email.toString())
+  );
+});
+// gets school name from getSchool()
+test("should obtain intern's School name", () => {
+  const intern = new Intern(
+    "Mary",
+    1234,
+    "mary@gmail.com",
+    "University of Minnesota"
+  );
 
-      expect(fs.writeFileSync).lastCalledWith(path, data);
-    });
-  });
-
-  describe("append", () => {
-    it("should call fs.appendFileSync with the passed in 'file' and 'data' arguments", () => {
-      const fileIO = new FileIO();
-      const file = "message.txt";
-      const data = "Goodbye World!";
-
-      fileIO.append(file, data);
-
-      expect(fs.appendFileSync).lastCalledWith(file, data);
-    });
-  });
+  expect(intern.getSchool()).toEqual(
+    expect.stringContaining(intern.school.toString())
+  );
 });

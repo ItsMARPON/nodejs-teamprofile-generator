@@ -6,6 +6,7 @@ const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
 const Manager = require("./lib/manager");
 
+// the full team Employee Data 
 let employeeData = [];
 
 // An array of questions for user input
