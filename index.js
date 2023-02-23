@@ -39,7 +39,6 @@ const questions = () => {
     ])
     .then((data) => {
       console.log("-------------------------EMPLOYEE-------------------------");
-      console.log(data);
       const employee = new Employee(data.name, data.id, data.email);
       if (data.role === "Manager") {
         promptManager();
@@ -78,10 +77,10 @@ const promptManager = () => {
       },
     ])
     .then((data) => {
-      console.log(data);
       console.log("-------------------------MANAGER-------------------------");
-      const manager = new Manager(data.name, data.id, data.email, data.office);
+      const manager = new Manager(data.name, data.id, data.email, data.officenumber);
       employeeData.push(manager);
+      console.log(employeeData);
       menu();
     });
 };
@@ -102,8 +101,8 @@ const menu = () => {
       } else if (data.choice === "Add Intern") {
         addIntern();
       } else {
+        createHtml();
         process.exit();
-        //  need to add function to compile all employee data
       }
     });
 };
@@ -133,15 +132,10 @@ const addEngineer = () => {
       },
     ])
     .then((data) => {
-      console.log(data);
       console.log("-------------------------ENGINEER-------------------------");
-      const engineer = new Engineer(
-        data.name,
-        data.id,
-        data.email,
-        data.github
-      );
+      const engineer = new Engineer(data.name, data.id, data.email, data.github);
       employeeData.push(engineer);
+      console.log(employeeData);
       menu();
     });
 };
@@ -171,15 +165,20 @@ const addIntern = () => {
       },
     ])
     .then((data) => {
-      console.log(data);
       console.log("-------------------------INTERN-------------------------");
       const intern = new Intern(data.name, data.id, data.email, data.school);
       employeeData.push(intern);
+      console.log(employeeData);
       menu();
     });
 };
 
 questions();
-console.log(employeeData);
 
-// function 
+const createHtml = ()=> {
+employeeData.forEach(function(data) {
+  fs.writeFile('./dist/index.html', data, err => {
+    err ? console.error(err) : console.log("Success!")
+})
+});
+};
