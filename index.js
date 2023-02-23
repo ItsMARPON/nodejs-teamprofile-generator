@@ -12,7 +12,7 @@ let employeeData = [];
 
 // An array of questions for user input
 const questions = () => {
- inquirer
+  inquirer
     .prompt([
       {
         type: "input",
@@ -52,7 +52,7 @@ const questions = () => {
       }
     });
 };
-
+// Questions for Manager Role
 const promptManager = () => {
   inquirer
     .prompt([
@@ -85,7 +85,7 @@ const promptManager = () => {
       menu();
     });
 };
-
+// Menu for next step actions to add employee roles
 const menu = () => {
   inquirer
     .prompt([
@@ -107,7 +107,7 @@ const menu = () => {
       }
     });
 };
-
+// EQuestions for Engineer role
 const addEngineer = () => {
   inquirer
     .prompt([
@@ -135,12 +135,17 @@ const addEngineer = () => {
     .then((data) => {
       console.log(data);
       console.log("-------------------------ENGINEER-------------------------");
-      const engineer = new Engineer(data.name,data.id,data.email,data.github);
+      const engineer = new Engineer(
+        data.name,
+        data.id,
+        data.email,
+        data.github
+      );
       employeeData.push(engineer);
       menu();
     });
 };
-
+// Question for Intern role
 const addIntern = () => {
   inquirer
     .prompt([
@@ -175,3 +180,6 @@ const addIntern = () => {
 };
 
 questions();
+console.log(employeeData);
+
+// function 
