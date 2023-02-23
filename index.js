@@ -1,5 +1,5 @@
 // Include packages needed for this application
-const fsPromises = require("fs").promises;
+const fs = require("fs");
 const inquirer = require("inquirer");
 const Employee = require("./lib/employee");
 const Engineer = require("./lib/engineer");
@@ -9,43 +9,46 @@ const Manager = require("./lib/manager");
 let employeeData = [];
 
 // An array of questions for user input
-const questions = [
-  {
-    type: "input",
-    message: "What is your name?",
-    name: "name",
-  },
-  {
-    type: "input",
-    message: "What is your email?",
-    name: "email",
-  },
-  {
-    type: "input",
-    message: "What is your employee ID?",
-    name: "id",
-  },
-  {
-    type: "list",
-    message:
-      "Start by adding a Manager role, if none, proceed with other options",
-    choices: ["Manager", "Engineer", "Intern"],
-    name: "role",
-  },
-];
-inquirer.prompt(questions).then((data) => {
-  console.log("-------------------------EMPLOYEE-------------------------");
-  console.log(data);
-  if (data.role === "Manager") {
-    promptManager();
-  } else if (data.role === "Engineer") {
-    addEngineer();
-  } else if (data.role === "Intern") {
-    addIntern();
-  } else {
-    process.exit();
-  }
-});
+const questions = async () => {
+  const data = await inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "What is your name?",
+        name: "name",
+      },
+      {
+        type: "input",
+        message: "What is your email?",
+        name: "email",
+      },
+      {
+        type: "input",
+        message: "What is your employee ID?",
+        name: "id",
+      },
+      {
+        type: "list",
+        message:
+          "Start by adding a Manager role, if none, proceed with other options",
+        choices: ["Manager", "Engineer", "Intern"],
+        name: "role",
+      },
+    ])
+    .then((data) => {
+      console.log("-------------------------EMPLOYEE-------------------------");
+      console.log(data);
+      if (data.role === "Manager") {
+        promptManager();
+      } else if (data.role === "Engineer") {
+        addEngineer();
+      } else if (data.role === "Intern") {
+        addIntern();
+      } else {
+        process.exit();
+      }
+    });
+};
 
 const promptManager = () => {
   inquirer
@@ -168,7 +171,7 @@ const addIntern = () => {
       console.log(data);
       console.log("-------------------------INTERN-------------------------");
       const intern = new Intern(data.name, data.id, data.email, data.school);
-      employeeData.push(data);
+      employeeData.push(intern);
       menu();
     });
 };

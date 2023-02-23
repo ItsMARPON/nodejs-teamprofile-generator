@@ -6,18 +6,15 @@ jest.mock("fs");
 describe("Employee", () => {
   describe("Initialization", () => {
     it("should ", () => {
-      const fileIO = new FileIO();
-      const file = "message.txt";
+      const employee = new Employee();
+      const file = "test.html";
       let data;
 
       fs.readFileSync.mockReturnValue("Hello World!");
-      data = fileIO.read(file);
+      data = employee.read(file);
 
       expect(data).toEqual("Hello World!");
       expect(fs.readFileSync).lastCalledWith(file, "utf8");
     });
   });
-
-
-
 });
