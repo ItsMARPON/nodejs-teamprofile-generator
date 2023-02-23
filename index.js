@@ -52,22 +52,22 @@ const promptManager = () => {
     .prompt([
       {
         type: "input",
-        message: "What is your Manager name?",
+        message: "What is the Manager's name?",
         name: "name",
       },
       {
         type: "input",
-        message: "What is your Manager email?",
+        message: "What is the Manager's email?",
         name: "email",
       },
       {
         type: "input",
-        message: "What is your Manager ID?",
+        message: "What is the Manager's ID?",
         name: "id",
       },
       {
         type: "input",
-        message: "What is your Manager office number?",
+        message: "What is the Manager office number?",
         name: "officenumber",
       },
     ])
@@ -107,22 +107,22 @@ const addEngineer = () => {
     .prompt([
       {
         type: "input",
-        message: "What is your Engineer name?",
+        message: "What is the Engineer's name?",
         name: "name",
       },
       {
         type: "input",
-        message: "What is your Engineer email?",
+        message: "What is the Engineer's email?",
         name: "email",
       },
       {
         type: "input",
-        message: "What is your Engineer ID?",
+        message: "What is the Engineer's ID?",
         name: "id",
       },
       {
         type: "input",
-        message: "What is your GitHub username?",
+        message: "What is the Engineer's GitHub username?",
         name: "github",
       },
     ])
@@ -145,22 +145,22 @@ const addIntern = () => {
     .prompt([
       {
         type: "input",
-        message: "What is your Intern name?",
+        message: "What is the Intern's name?",
         name: "name",
       },
       {
         type: "input",
-        message: "What is your Intern email?",
+        message: "What is the Intern's email?",
         name: "email",
       },
       {
         type: "input",
-        message: "What is your Intern ID?",
+        message: "What is the Intern's ID?",
         name: "id",
       },
       {
         type: "input",
-        message: "What is your school?",
+        message: "What is the name of the Intern's school?",
         name: "school",
       },
     ])
