@@ -3,19 +3,28 @@ const fs = require("fs");
 
 jest.mock("fs");
 
+// gets name from getName()
 describe("Intern", () => {
   describe("Initialization", () => {
-    test("should obtain intern Id", () => {
-      const intern = new Intern ("Mary", 1234, "mary@gmail.com");
+    test("should obtain intern name", () => {
+      const intern = new Intern("Mary", 1234, "mary@gmail.com");
 
-      expect(intern.id).toEqual(expect.any(Number));
+      expect(intern.name).toEqual(
+        expect.stringContaining(intern.name.toString())
+      );
     });
   });
 });
 
+test("should obtain intern Id", () => {
+  const intern = new Intern("Mary", 1234, "mary@gmail.com");
+
+  expect(intern.id).toEqual(expect.any(Number));
+});
+
 // gets email from getEmail()
 test("should obtain intern email", () => {
-  const intern = new Intern ("Mary", 1234, "mary@gmail.com");
+  const intern = new Intern("Mary", 1234, "mary@gmail.com");
 
   expect(intern.email).toEqual(
     expect.stringContaining(intern.email.toString())

@@ -2,16 +2,24 @@ const Employee = require("../lib/employee");
 
 jest.mock("fs");
 
-// gets ID from getId()
+// gets name from getName()
 describe("Employee", () => {
   describe("Initialization", () => {
-    test("should obtain employee Id", () => {
+    test("should obtain employee name", () => {
       const employee = new Employee("Mary", 1234, "mary@gmail.com");
 
-      expect(employee.getId()).toEqual(expect.any(Number));
+      expect(employee.getName()).toEqual(expect.stringContaining(employee.name.toString()));
     });
   });
 });
+
+// gets ID from getId()
+test("should obtain employee Id", () => {
+  const employee = new Employee("Mary", 1234, "mary@gmail.com");
+
+  expect(employee.getId()).toEqual(expect.any(Number));
+});
+
 
 // gets email from getEmail()
 test("should obtain employee email", () => {
