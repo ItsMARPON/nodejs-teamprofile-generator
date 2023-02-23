@@ -5,13 +5,14 @@ const Employee = require("./lib/employee");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
 const Manager = require("./lib/manager");
+// const helperHTML = require("./src/helperHTML");
 
 // the full team Employee Data
 let employeeData = [];
 
 // An array of questions for user input
 const questions = () => {
-  return inquirer
+ inquirer
     .prompt([
       {
         type: "input",
@@ -32,6 +33,7 @@ const questions = () => {
         type: "list",
         message: "What is your role?",
         choices: ["Manager", "Engineer", "Intern"],
+        default: ["Manager"],
         name: "role",
       },
     ])
@@ -52,7 +54,7 @@ const questions = () => {
 };
 
 const promptManager = () => {
-  return inquirer
+  inquirer
     .prompt([
       {
         type: "input",
@@ -107,7 +109,7 @@ const menu = () => {
 };
 
 const addEngineer = () => {
-  return inquirer
+  inquirer
     .prompt([
       {
         type: "input",
@@ -133,19 +135,14 @@ const addEngineer = () => {
     .then((data) => {
       console.log(data);
       console.log("-------------------------ENGINEER-------------------------");
-      const engineer = new Engineer(
-        data.name,
-        data.id,
-        data.email,
-        data.github
-      );
+      const engineer = new Engineer(data.name,data.id,data.email,data.github);
       employeeData.push(engineer);
       menu();
     });
 };
 
 const addIntern = () => {
- return inquirer
+  inquirer
     .prompt([
       {
         type: "input",
@@ -177,4 +174,4 @@ const addIntern = () => {
     });
 };
 
-
+questions();
