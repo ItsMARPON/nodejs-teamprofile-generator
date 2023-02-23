@@ -199,15 +199,15 @@ const addIntern = () => {
 //       <main>
 //         <div class="card" style="width: 18rem">
 //           <div class="card-body">
-//             <h5 class="card-title">Employee Name${gatherInfo.name}</h5>
+//             <h5 class="card-title">Employee Name${data.name}</h5>
 //             <p class="card-text">
 //               Some quick example text
 //             </p>
 //           </div>
 //           <ul class="list-group list-group-flush">
-//             <li class="list-group-item">Emp ID:${gatherInfo.id}</li>
-//             <li a href="#" class="list-group-item">Email:${gatherInfo.email}</a></li>
-//             <li class="list-group-item">Role:${gatherInfo.role}</li>
+//             <li class="list-group-item">Emp ID:${data.id}</li>
+//             <li class="list-group-item">Email:${data.email}<a href="mailto:${data.email}></a></li>
+//             <li class="list-group-item">Role:${data.role}</li>
 //           </ul>
 //         </div>
 //       </main>
