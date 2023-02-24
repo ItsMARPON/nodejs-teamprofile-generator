@@ -78,12 +78,7 @@ const promptManager = () => {
     ])
     .then((data) => {
       console.log("-------------------------MANAGER-------------------------");
-      const manager = new Manager(
-        data.name,
-        data.id,
-        data.email,
-        data.office
-      );
+      const manager = new Manager(data.name, data.id, data.email, data.office);
       employeeData.push(manager);
       console.log(employeeData);
       menu();
@@ -186,7 +181,6 @@ questions();
 
 const createHtml = () => {
   employeeData.forEach(function (data) {
-    employeeData.join(data);
     fs.writeFile(
       "./dist/index.html",
       `<!DOCTYPE html>
