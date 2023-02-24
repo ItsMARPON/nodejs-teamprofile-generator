@@ -78,7 +78,12 @@ const promptManager = () => {
     ])
     .then((data) => {
       console.log("-------------------------MANAGER-------------------------");
-      const manager = new Manager(data.name, data.id, data.email, data.officenumber);
+      const manager = new Manager(
+        data.name,
+        data.id,
+        data.email,
+        data.officenumber
+      );
       employeeData.push(manager);
       console.log(employeeData);
       menu();
@@ -102,7 +107,6 @@ const menu = () => {
         addIntern();
       } else {
         createHtml();
-        process.exit();
       }
     });
 };
@@ -133,7 +137,12 @@ const addEngineer = () => {
     ])
     .then((data) => {
       console.log("-------------------------ENGINEER-------------------------");
-      const engineer = new Engineer(data.name, data.id, data.email, data.github);
+      const engineer = new Engineer(
+        data.name,
+        data.id,
+        data.email,
+        data.github
+      );
       employeeData.push(engineer);
       console.log(employeeData);
       menu();
@@ -175,10 +184,55 @@ const addIntern = () => {
 
 questions();
 
-const createHtml = ()=> {
-employeeData.forEach(function(data) {
-  fs.writeFile('./dist/index.html', data, err => {
-    err ? console.error(err) : console.log("Success!")
-})
-});
+const createHtml = () => {
+  employeeData.forEach(function (data) {
+    fs.writeFile(
+      "./dist/index.html",
+      `<!DOCTYPE html>
+      <html lang="en">
+        <head>
+          <meta charset="UTF-8" />
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <link rel="stylesheet" href="../assets/css/style.css" />
+          <title>Nodejs Team Profile Generator</title>
+          <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+            crossorigin="anonymous"
+          />
+        </head>
+    
+        <body>
+          <main>
+            <div class="card" style="width: 18rem">
+              <div class="card-body">
+                <h5 class="card-title">Employee: ${data.name}</h5>
+                <p class="card-text">
+                  We make a great team!
+                </p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Emp ID: ${data.id}</li>
+                <li class="list-group-item">Email: ${data.email}<a href="mailto:${data.email}"></a></li>
+                <li class="list-group-item">Role: ${data.role}</li>
+              </ul>
+            </div>
+          </main>
+    
+          <footer></footer>
+    
+          <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+            integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+            crossorigin="anonymous"
+          ></script>
+        </body>
+      </html>`,
+      (err) => {
+        err ? console.error(err) : console.log("Success!");
+      }
+    );
+  });
 };
