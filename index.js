@@ -186,6 +186,7 @@ questions();
 
 const createHtml = () => {
   employeeData.forEach(function (data) {
+    employeeData.join(data);
     fs.writeFile(
       "./dist/index.html",
       `<!DOCTYPE html>
