@@ -31,7 +31,7 @@ test("should obtain intern email", () => {
   );
 });
 // gets school name from getSchool()
-test("should obtain intern's School name", () => {
+test("should obtain intern's school name", () => {
   const intern = new Intern(
     "Mary",
     1234,

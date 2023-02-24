@@ -73,7 +73,7 @@ const promptManager = () => {
       {
         type: "input",
         message: "Manager, what is your office number?",
-        name: "officenumber",
+        name: "office",
       },
     ])
     .then((data) => {
@@ -82,7 +82,7 @@ const promptManager = () => {
         data.name,
         data.id,
         data.email,
-        data.officenumber
+        data.office
       );
       employeeData.push(manager);
       console.log(employeeData);
