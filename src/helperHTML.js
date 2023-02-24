@@ -1,10 +1,88 @@
-
-// A function to write HTML file
-
-
+const employeeData = require('../index');
+const fs = require("fs");
 
 
-// create HTML
+// A function to create the employee team
+const html = [];
+
+const employeeTeam = team => {
+  if (employeeData.role === "Manager") {
+    html.push(team);
+    generateManager();
+  } else if( employeeData.role === "Engineer") {
+    html.push(team);
+    generateEngineer();
+  } else if(employeeData.role === "Intern") {
+    html.push(team);
+    generateIntern();
+  } else {
+    console.log('There is an error');
+  }
+  
+// A function for Manager role to append to HTML file
+  const generateManager = manager => {
+  return `<div>
+        <div class="card" style="width: 18rem">
+          <div class="card-body">
+            <h5 class="card-title">Employee Name${data.name}</h5>
+            <p class="card-text">
+              Some quick example text 
+            </p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Emp ID:${data.id}</li>
+            <li a href="#" class="list-group-item">Email:${data.email}</a></li>
+            <li class="list-group-item">Role:${data.role}</li>
+            <li class="list-group-item">Office No:${data.office}</li>
+          </ul>
+        </div>
+      </div>`
+};
+  // A function for Engineer role to append to HTML file
+  const generateEngineer = engineer => {
+  return `<div>
+          <div class="card" style="width: 18rem">
+            <div class="card-body">
+              <h5 class="card-title">Employee Name${data.name}</h5>
+              <p class="card-text">
+                Some quick example text 
+              </p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Emp ID:${data.id}</li>
+              <li a href="#" class="list-group-item">Email:${data.email}</a></li>
+              <li class="list-group-item">Role:${data.role}</li>
+              <li class="list-group-item">GitHub:${data.github}</li>
+            </ul>
+          </div>
+        </div>`
+  };
+
+// A function for Intern role to append to HTML file
+  const generateIntern = intern => {
+  return `<div>
+          <div class="card" style="width: 18rem">
+            <div class="card-body">
+              <h5 class="card-title">Employee Name${data.name}</h5>
+              <p class="card-text">
+                Some quick example text 
+              </p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Emp ID:${data.id}</li>
+              <li a href="#" class="list-group-item">Email:${data.email}</a></li>
+              <li class="list-group-item">Role:${data.role}</li>
+              <li class="list-group-item">School:${data.school}</li>
+            </ul>
+          </div>
+          </div>`
+  };
+  return html.join("");
+};
+
+
+// create HTML framework 
+const htmlframe = (html)=>{
 fs.writeFile(
   "./dist/index.html",
   `<!DOCTYPE html>
@@ -25,22 +103,8 @@ fs.writeFile(
 
     <body>
       <main>
-        <div class="card" style="width: 18rem">
-          <div class="card-body">
-            <h5 class="card-title">Employee Name${data.name}</h5>
-            <p class="card-text">
-              Some quick example text
-            </p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Emp ID:${data.id}</li>
-            <li class="list-group-item">Email:${data.email}<a href="mailto:${data.email}></a></li>
-            <li class="list-group-item">Role:${data.role}</li>
-          </ul>
-        </div>
+          ${html}
       </main>
-
-      <footer></footer>
 
       <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
@@ -48,87 +112,10 @@ fs.writeFile(
         crossorigin="anonymous"
       ></script>
     </body>
+
   </html>`,
   (err) => (err ? console.log(err) : console.log("Success!"))
 );
+};
 
-
-  // A function to append to HTML file
-  inquirer.prompt(engineerQuestion).then((data) => {
-    fs.appendFile(
-      "./dist/index.html",
-      `     <main>
-            <div class="card" style="width: 18rem">
-              <div class="card-body">
-                <h5 class="card-title">Employee Name${data.name}</h5>
-                <p class="card-text">
-                  Some quick example text 
-                </p>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">Emp ID:${data.id}</li>
-                <li a href="#" class="list-group-item">Email:${data.email}</a></li>
-                <li class="list-group-item">Role:${data.role}</li>
-                <li class="list-group-item">GitHub:${data.github}</li>
-              </ul>
-            </div>
-          </main>`,
-      (err) => (err ? console.log(err) : console.log("Success!"))
-    );
-  });
-
-
-
-
-  // A function to append to HTML file
-  inquirer.prompt(internQuestion).then((data) => {
-    fs.appendFile(
-      "./dist/index.html",
-      `      <main>
-            <div class="card" style="width: 18rem">
-              <div class="card-body">
-                <h5 class="card-title">Employee Name${data.name}</h5>
-                <p class="card-text">
-                  Some quick example text 
-                </p>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">Emp ID:${data.id}</li>
-                <li a href="#" class="list-group-item">Email:${data.email}</a></li>
-                <li class="list-group-item">Role:${data.role}</li>
-                <li class="list-group-item">School:${data.school}</li>
-              </ul>
-            </div>
-          </main>`,
-      (err) => (err ? console.log(err) : console.log("Success!"))
-    );
-  });
-
-
-  
-
-  // A function to append to HTML file
-  inquirer.prompt(managerQuestion).then((data) => {
-    fs.appendFile(
-      "./dist/index.html",
-      `     <main>
-            <div class="card" style="width: 18rem">
-              <div class="card-body">
-                <h5 class="card-title">Employee Name${data.name}</h5>
-                <p class="card-text">
-                  Some quick example text 
-                </p>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">Emp ID:${data.id}</li>
-                <li a href="#" class="list-group-item">Email:${data.email}</a></li>
-                <li class="list-group-item">Role:${data.role}</li>
-                <li class="list-group-item">Office No:${data.office}</li>
-              </ul>
-            </div>
-          </main>`,
-      (err) => (err ? console.log(err) : console.log("Success!"))
-    );
-  });
-
-
+module.exports = htmlframe;
