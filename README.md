@@ -1,10 +1,11 @@
-# nodejs-teamprofile-generator
+# nodejs-teamprofile-generator ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## Description
+
 I want to be able to generate an HTML webpage that displays a work team environment's basic information. This will be a resource to locate and view employee emails and GitHub profiles.
 
-
 ## Table of Contents
+
 - [Installation](#installation)
 
 - [Usage](#usage)
@@ -18,9 +19,11 @@ I want to be able to generate an HTML webpage that displays a work team environm
 - [Questions](#questions)
 
 ## Installation<a name="installation"></a>
+
 Install Node.js version 16 and Install npm i inquirer and npm install jest
 
 ## Usage<a name="usage"></a>
+
 In the command line of GitBash, type "node index.js" to run the application.
 
 GIVEN a command-line application that accepts user input <br />
@@ -42,15 +45,23 @@ WHEN I decide to finish building my team <br />
 THEN I exit the application, and the HTML is generated <br />
 
 ## Credits<a name="credits"></a>
+
 Code contribution from instructor, teacher assistants, and Calendly Tutors
 
 ## License<a name="license"></a>
+
 MIT License (https://opensource.org/licenses/MIT)
 
 ## Tests<a name="test"></a>
-npm run test
+
+Jest command npm run test
+
+## Badges
+
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## Questions<a name="questions"></a>
+
 Contact me with questions at the following links:
 GitHub Username: itsMARPON
 GitHub URL: https://github.com/ItsMARPON
