@@ -27,7 +27,7 @@ const employeeTeam = (team) => {
 const generateManager = (manager) => {
   return `
         <div class="card col-3" style="width: 18rem">
-          <div class="card-body">
+          <div class="card-body --bs-primary-text">
             <h5 class="card-title bs-primary-rgb">Employee: ${manager.name}</h5>
             <p class="card-text">
               We are a great team!
@@ -47,7 +47,7 @@ const generateManager = (manager) => {
 const generateEngineer = (engineer) => {
   return `
           <div class="card col-3" style="width: 18rem">
-            <div class="card-body">
+            <div class="card-body --bs-primary-text">
               <h5 class="card-title bs-primary-rgb">Employee: ${
                 engineer.name
               }</h5>
@@ -70,7 +70,7 @@ const generateEngineer = (engineer) => {
 const generateIntern = (intern) => {
   return `
           <div class="card col-3" style="width: 18rem">
-            <div class="card-body">
+            <div class="card-body --bs-primary-text">
               <h5 class="card-title bs-primary-rgb">Employee: ${
                 intern.name
               }</h5>
