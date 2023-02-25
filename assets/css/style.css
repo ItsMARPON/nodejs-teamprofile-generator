@@ -1,10 +1,5 @@
 :root {
   scroll-behavior: smooth;
-  --bs-success-bg-subtle: #dce8fa;
-  --bs-primary: #110dfddb;
-  --bs-primary-rgb: #0d6efd;
-  --bs-primary-bg-subtle: #98bff9;
-  --bs-primary-text: #0d4393;
 }
 
 .selector-for-some-widget {
@@ -25,12 +20,13 @@ header {
   color: white;
 }
 .card {
-  margin: 5px;
+  margin: 20px;
+  background-color: beige !important;
 }
 
 footer {
   display: flex;
   justify-content: center;
-  padding: 30px;
+  padding: 50px;
   text-align: center;
 }
