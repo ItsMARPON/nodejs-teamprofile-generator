@@ -26,7 +26,7 @@ const employeeTeam = (team) => {
 // A function for Manager role to append to HTML file
 const generateManager = (manager) => {
   return `
-        <div class="card col-3 d-flex align-items-center" style="width: 18rem">
+        <div class="card col-3 d-flex align-items-center flex-wrap shadow p-3 mb-5 bg-body-tertiary rounded" style="width: 18rem">
           <div class="card-body">
             <h5 class="card-title bs-primary-rgb">Employee: ${manager.name}</h5>
             <p class="card-text">
@@ -46,7 +46,7 @@ const generateManager = (manager) => {
 // A function for Engineer role to append to HTML file
 const generateEngineer = (engineer) => {
   return `
-          <div class="card col-3 d-flex align-items-center" style="width: 18rem">
+          <div class="card col-3 d-flex align-items-center flex-wrap shadow p-3 mb-5 bg-body-tertiary rounded" style="width: 18rem">
             <div class="card-body">
               <h5 class="card-title bs-primary-rgb">Employee: ${
                 engineer.name
@@ -69,7 +69,7 @@ const generateEngineer = (engineer) => {
 // A function for Intern role to append to HTML file
 const generateIntern = (intern) => {
   return `
-          <div class="card col-3 d-flex align-items-center" style="width: 18rem">
+          <div class="card col-3 d-flex align-items-center flex-wrap shadow p-3 mb-5 bg-body-tertiary rounded" style="width: 18rem">
             <div class="card-body">
               <h5 class="card-title bs-primary-rgb">Employee: ${
                 intern.name
