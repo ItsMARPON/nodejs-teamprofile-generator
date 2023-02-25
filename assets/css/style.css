@@ -14,8 +14,23 @@
 main {
   display: flex;
   justify-content: center;
+  background-color: #dce8fa;
+}
+header {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  text-align: center;
+  background-color: green;
+  color: white;
 }
 .card {
-  background-color: var(--bs-primary-bg-subtle) !important;
   margin: 5px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  text-align: center;
 }

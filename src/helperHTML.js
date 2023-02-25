@@ -28,18 +28,18 @@ const generateManager = (manager) => {
   return `
         <div class="card col-3" style="width: 18rem">
           <div class="card-body">
-            <h5 class="card-title">Employee: ${manager.name}</h5>
+            <h5 class="card-title bs-primary-rgb">Employee: ${manager.name}</h5>
             <p class="card-text">
               We are a great team!
             </p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Emp ID:${manager.id}</li>
-            <li a href="#" class="list-group-item">Email:${
+            <li class="list-group-item">Emp ID: ${manager.id}</li>
+            <li a href="#" class="list-group-item">Email: ${
               manager.email
             }</a></li>
-            <li class="list-group-item">Role:${manager.getRole()}</li>
-            <li class="list-group-item">Office No:${manager.office}</li>
+            <li class="list-group-item">Role: ${manager.getRole()}</li>
+            <li class="list-group-item">Office No: ${manager.office}</li>
           </ul>
         </div>`;
 };
@@ -48,18 +48,20 @@ const generateEngineer = (engineer) => {
   return `
           <div class="card col-3" style="width: 18rem">
             <div class="card-body">
-              <h5 class="card-title">Employee: ${engineer.name}</h5>
+              <h5 class="card-title bs-primary-rgb">Employee: ${
+                engineer.name
+              }</h5>
               <p class="card-text">
                 We are a great team!
               </p>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Emp ID:${engineer.id}</li>
-              <li a href="#" class="list-group-item">Email:${
+              <li class="list-group-item">Emp ID: ${engineer.id}</li>
+              <li a href="#" class="list-group-item">Email: ${
                 engineer.email
               }</a></li>
-              <li class="list-group-item">Role:${engineer.getRole()}</li>
-              <li class="list-group-item">GitHub:${engineer.getGitHub()}</li>
+              <li class="list-group-item">Role: ${engineer.getRole()}</li>
+              <li class="list-group-item">GitHub: ${engineer.getGitHub()}</li>
             </ul>
           </div>`;
 };
@@ -69,7 +71,9 @@ const generateIntern = (intern) => {
   return `
           <div class="card col-3" style="width: 18rem">
             <div class="card-body">
-              <h5 class="card-title">Employee: ${intern.name}</h5>
+              <h5 class="card-title bs-primary-rgb">Employee: ${
+                intern.name
+              }</h5>
               <p class="card-text">
                 We are a great team!
               </p>
@@ -79,8 +83,8 @@ const generateIntern = (intern) => {
               <li a href="#" class="list-group-item">Email:${
                 intern.email
               }</a></li>
-              <li class="list-group-item">Role:${intern.getRole()}</li>
-              <li class="list-group-item">School:${intern.school}</li>
+              <li class="list-group-item">Role: ${intern.getRole()}</li>
+              <li class="list-group-item">School: ${intern.school}</li>
             </ul>
           </div>
           `;
@@ -105,6 +109,9 @@ const htmlframe = (html) => {
         crossorigin="anonymous"
       />
     </head>
+    <header>
+      <h1>My Team</h1>
+    </header>
 
     <body>
       <main class="row">
@@ -118,6 +125,7 @@ const htmlframe = (html) => {
       ></script>
     </body>
 
+    <footer>Made by itsMARPON Copyright</footer>
   </html>`,
     (err) => (err ? console.log(err) : console.log("Success!"))
   );
