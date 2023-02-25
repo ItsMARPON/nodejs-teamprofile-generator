@@ -1,91 +1,96 @@
-const employeeData = require('../index');
 const fs = require("fs");
 
-
 // A function to create the employee team
-const html = [];
+let html = [];
 
-const employeeTeam = team => {
-  if (employeeData.role === "Manager") {
-    html.push(team);
-    generateManager();
-  } else if( employeeData.role === "Engineer") {
-    html.push(team);
-    generateEngineer();
-  } else if(employeeData.role === "Intern") {
-    html.push(team);
-    generateIntern();
-  } else {
-    console.log('There is an error');
+const employeeTeam = (team) => {
+  for (let i = 0; i < team.length; i++) {
+    if (team[i].getRole() === "Manager") {
+      let manager = generateManager(team[i]);
+      html.push(manager);
+    } else if (team[i].getRole() === "Engineer") {
+      let engineer = generateEngineer(team[i]);
+      html.push(engineer);
+    } else if (team[i].getRole() === "Intern") {
+      let intern = generateIntern(team[i]);
+      html.push(intern);
+    } else {
+      console.log("There is an error");
+    }
   }
-  
+
+  console.log(html);
+  htmlframe(html.join(" "));
+};
+
 // A function for Manager role to append to HTML file
-  const generateManager = manager => {
-  return `<div>
-        <div class="card" style="width: 18rem">
+const generateManager = (manager) => {
+  return `
+        <div class="card col-3" style="width: 18rem">
           <div class="card-body">
-            <h5 class="card-title">Employee Name${data.name}</h5>
+            <h5 class="card-title">Employee: ${manager.name}</h5>
             <p class="card-text">
-              Some quick example text 
+              We are a great team!
             </p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Emp ID:${data.id}</li>
-            <li a href="#" class="list-group-item">Email:${data.email}</a></li>
-            <li class="list-group-item">Role:${data.role}</li>
-            <li class="list-group-item">Office No:${data.office}</li>
+            <li class="list-group-item">Emp ID:${manager.id}</li>
+            <li a href="#" class="list-group-item">Email:${
+              manager.email
+            }</a></li>
+            <li class="list-group-item">Role:${manager.getRole()}</li>
+            <li class="list-group-item">Office No:${manager.office}</li>
           </ul>
-        </div>
-      </div>`
+        </div>`;
 };
-  // A function for Engineer role to append to HTML file
-  const generateEngineer = engineer => {
-  return `<div>
-          <div class="card" style="width: 18rem">
+// A function for Engineer role to append to HTML file
+const generateEngineer = (engineer) => {
+  return `
+          <div class="card col-3" style="width: 18rem">
             <div class="card-body">
-              <h5 class="card-title">Employee Name${data.name}</h5>
+              <h5 class="card-title">Employee: ${engineer.name}</h5>
               <p class="card-text">
-                Some quick example text 
+                We are a great team!
               </p>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Emp ID:${data.id}</li>
-              <li a href="#" class="list-group-item">Email:${data.email}</a></li>
-              <li class="list-group-item">Role:${data.role}</li>
-              <li class="list-group-item">GitHub:${data.github}</li>
+              <li class="list-group-item">Emp ID:${engineer.id}</li>
+              <li a href="#" class="list-group-item">Email:${
+                engineer.email
+              }</a></li>
+              <li class="list-group-item">Role:${engineer.getRole()}</li>
+              <li class="list-group-item">GitHub:${engineer.getGitHub()}</li>
             </ul>
-          </div>
-        </div>`
-  };
+          </div>`;
+};
 
 // A function for Intern role to append to HTML file
-  const generateIntern = intern => {
-  return `<div>
-          <div class="card" style="width: 18rem">
+const generateIntern = (intern) => {
+  return `
+          <div class="card col-3" style="width: 18rem">
             <div class="card-body">
-              <h5 class="card-title">Employee Name${data.name}</h5>
+              <h5 class="card-title">Employee: ${intern.name}</h5>
               <p class="card-text">
-                Some quick example text 
+                We are a great team!
               </p>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Emp ID:${data.id}</li>
-              <li a href="#" class="list-group-item">Email:${data.email}</a></li>
-              <li class="list-group-item">Role:${data.role}</li>
-              <li class="list-group-item">School:${data.school}</li>
+              <li class="list-group-item">Emp ID:${intern.id}</li>
+              <li a href="#" class="list-group-item">Email:${
+                intern.email
+              }</a></li>
+              <li class="list-group-item">Role:${intern.getRole()}</li>
+              <li class="list-group-item">School:${intern.school}</li>
             </ul>
           </div>
-          </div>`
-  };
-  return html.join("");
+          `;
 };
 
-
-// create HTML framework 
-const htmlframe = (html)=>{
-fs.writeFile(
-  "./dist/index.html",
-  `<!DOCTYPE html>
+// create HTML framework
+const htmlframe = (html) => {
+  fs.writeFile(
+    "./dist/index.html",
+    `<!DOCTYPE html>
   <html lang="en">
     <head>
       <meta charset="UTF-8" />
@@ -102,7 +107,7 @@ fs.writeFile(
     </head>
 
     <body>
-      <main>
+      <main class="row">
           ${html}
       </main>
 
@@ -114,8 +119,8 @@ fs.writeFile(
     </body>
 
   </html>`,
-  (err) => (err ? console.log(err) : console.log("Success!"))
-);
+    (err) => (err ? console.log(err) : console.log("Success!"))
+  );
 };
 
-module.exports = htmlframe;
+module.exports = employeeTeam;

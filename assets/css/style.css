@@ -11,6 +11,11 @@
   box-sizing: content-box;
 }
 
+main {
+  display: flex;
+  justify-content: center;
+}
 .card {
-  background-color: var(--bs-primary-bg-subtle);
+  background-color: var(--bs-primary-bg-subtle) !important;
+  margin: 5px;
 }

@@ -4,7 +4,7 @@ const Employee = require("./lib/employee");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
 const Manager = require("./lib/manager");
-const htmlframe = require("./src/helperHTML");
+const employeeTeam = require("./src/helperHTML");
 
 // the full team Employee Data
 let employeeData = [];
@@ -100,7 +100,7 @@ const menu = () => {
       } else if (data.choice === "Add Intern") {
         addIntern();
       } else {
-        htmlframe();
+        employeeTeam(employeeData);
       }
     });
 };
@@ -177,6 +177,3 @@ const addIntern = () => {
 };
 
 questions();
-
-
-module.exports = employeeData;
