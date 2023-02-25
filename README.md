@@ -25,6 +25,7 @@ Install Node.js version 16 and Install npm i inquirer and npm install jest
 ## Usage<a name="usage"></a>
 
 In the command line of GitBash, type "node index.js" to run the application.
+[Walk-through video](https://watch.screencastify.com/v/9nc3Si9QHXJNfyS2tyxS)
 
 GIVEN a command-line application that accepts user input <br />
 WHEN I am prompted for my team members and their information <br />
